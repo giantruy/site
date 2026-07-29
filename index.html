@@ -1,171 +1,410 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Site</title>
-    <link rel="stylesheet" href="">
-    <style>
-        * {margin: 0; padding: 0; box-sizing: border-box;}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Website</title>
+        <link rel="stylesheet" href="">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: #f5f5f0;
-        }
+            html, body {
+                background-color: #0a0a0d;
+            }
 
-        header {
-            position: relative;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 40px;
-            background-color: #000000;
-        }
+            body {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica', sans-serif;
+                color: #f5f5f0;
+            }
 
-        header h1 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-        }
+            header {
+                position: relative;
+                z-index: 100;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 24px 40px;
+                background-color: #000000;
+            }
 
-        nav a {
-            margin-left: 24px;
-            text-decoration: none;
-            color: #f5f5f0;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
+            header h1{
+                font-size: 1.1rem;
+                font-weight: 900;
+                letter-spacing: 0.03em;
+                transition:all 0.3s ease-in-out;
+            }
 
-        nav a hover {
-            color: #f5f5f0;
-            opacity: 0.8;
-        }
+            header.centered h1 {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
 
-        .panel {
-            position:sticky;
-            top: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 24px;
-        }
+            nav a {
+                margin-left: 24px;
+                text-decoration: none;
+                color: #f5f5f0;
+                font-size: 0.9rem;
+                font-weight: 800;
+            }
 
-        .panel p {
-            font-size: clamp(1.4rem, 4vw, 2.4rem);
-            font-weight: 600;
-            max-width: 800px;
-            line-height: 1.4;
-        }
+            nav a:hover {
+                color: #f5f5f0;
+            }
 
-        .panel h2 {
-            font-size: clamp(1.6rem, 4vw, 2.6rem);
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
+            nav a:visited {
+                color: #f5f5f0;
+            }
 
-        .panel-image img {
-            max-width: 280px;
-            width: 60%;
-            border-radius: 50%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-        }
+            .panel {
+                position: relative;
+                top: 0;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 40px 24px;
+            }
 
-        .panel li {
-            font-size: clamp(1.2rem, 3vw, 2.2rem);
-        }
-        
-        .panel:nth-of-type(1) {background-color: #0a0a0d; z-index: 1;}
-        .panel:nth-of-type(2) {background-color: #101014; z-index: 2;}
-        .panel:nth-of-type(3) {background-color: #1a1a1a; z-index: 3;}
-        .panel:nth-of-type(4) {background-color: #1c1f2b; z-index: 4;}
-        .panel:nth-of-type(5) {background-color: #1a1a1a; z-index: 5;}
-        .panel:nth-of-type(6) {background-color: #101014; z-index: 6;}
-        .panel:nth-of-type(7) {background-color: #0a0a0d; z-index: 7;}
-        .panel:nth-of-type(8) {background-color: #000000; z-index: 8;}
+            .panel-tall {
+                position: relative;
+                height: 250vh;
+                display: block;
+            }
 
-        a {
-            color: #4e7cc7;
-            text-decoration: underline;
-        }
+            .spacer-top {
+                height: 50vh;
+            }
 
-        a:hover {
-            color: #7aadff;
-            opacity: 0.8;
-        }
+            .spacer-top--short {
+                height: 15vh;
+            }
 
-        a:visited {
-            color: #4e7cc7;
-            text-decoration: underline;
-        }
+            .pin-wrap {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
 
+            .pin-wrap-image {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                overflow: hidden;
+            }
 
-        footer {
-            position: relative;
-            z-index: 100;
-            justify-content: center;
-            text-align: center;
-            padding: 24px 40px;
-            background-color: #000000;
-            color: #5e5d5d;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>The Website</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Current Projects</a>
-        </nav>
-    </header>
-    <main>
-        <section class="panel panel-image">
-            <img src="images/roll.png" alt="Cinnamon Roll">
-        </section>
-        <section class="panel">
-            <p>
-                This is The Website.
-            </p>
-        </section>
-        <section class="panel">
-            <p>
-                Welcome.
-            </p>
-        </section>
-        <section class="panel" id="about">
-            <p>
-                I am CinnamonRoll and I make projects. I tinker with both hardware and software.
-            </p>
+            .pin-wrap-image::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: url('images/roll_upscale.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                filter: grayscale(100%) contrast(1.5) brightness(0.5);
+                mix-blend-mode: lighten;
+                z-index: -1;
+            }
+
+            .panel p {
+                font-size: clamp(1.4rem, 2vw, 2.4rem);
+                font-weight: 900;
+                max-width: 800px;
+                line-height: 1.2;
+            }
+
+            .panel h2 {
+                font-size: clamp(1.4rem, 5vw, 2.4rem);
+                font-weight: 900;
+                margin-bottom: 24px;
+            }
+
+            .panel-image img {
+                max-width: 280px;
+                width: 60%;
+                border-radius: 50%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                position: relative;
+                height: auto;
+                z-index: 1;
+                filter: grayscale(90%) contrast(1.5) brightness(0.5);
+                mix-blend-mode: difference;
+            }
+
+            .panel-image {
+                position: relative;
+                overflow: hidden;
+                height: 150vh;
+                display: block;
+            }
+
+            .animation-wrapper {
+                height: 150vh;
+            }
+
+            .panel-image .scroll-group {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin: 0 auto;
+                padding: 0;
+            }
+
+            .scroll-bg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 30vw;
+                font-weight: 900;
+                z-index: 0;
+                color: rgba(245, 245, 240, 0.1);
+                letter-spacing: -0.05em;
+                font-family: "Archivo Black", sans-serif;
+                transition: transform 0.05s linear;
+            }
+
+            .panel li {
+                font-size: clamp(1.2rem, 3vw, 2.2rem);
+                font-weight: 800;
+            }
+
+            #about {
+                height: 200vh;
+            }
+
+            #about.panel {
+                padding: 0;
+            }
+
+            .about-sticky {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                overflow: hidden;
+            }
+            .about-sticky::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: url('images/roll_upscale.png');
+                background-size: cover;
+                background-position: center;
+                filter: grayscale(100%) contrast(1.5) brightness(0.5);
+                z-index: -2;
+            }
+
+            .about-sticky p {
+                z-index: 1;
+                padding: 20px;
+            }
+
+            .bar {
+                position: absolute;
+                width: 100%;
+                height: 120px;
+                background-color: rgba(0, 0, 0, 0.45);
+                backdrop-filter: blur(10px);
+                z-index: 0;
+            }
+
+            .panel:nth-of-type(1) {background-color: #0a0a0d; z-index: 1;}
+            .panel:nth-of-type(2) {background-color: #101014; z-index: 2; font-size-adjust: 1;}
+            .panel:nth-of-type(3) {background-color: #1a1a1a; z-index: 3; }
+            .panel:nth-of-type(4) {background-color: #1a1a1a; z-index: 4; display: block; position: relative; height: 200vh;}
             
-        </section>
-        <section class="panel" id="projects">
+            .panel:nth-of-type(5) {background-color: #1a1a1a; z-index: 5;}
+            .panel:nth-of-type(6) {background-color: #101014; z-index: 6;}
+            .panel:nth-of-type(7) {background-color: #0a0a0d; z-index: 7;}
+            .panel:nth-of-type(8) {background-color: #000000; z-index: 8;}
+
+            a {
+                color: #4e7cc7;
+                text-decoration: underline;
+                font-weight: 900;
+            }
+
+            a:hover {
+                color: #7aadff;
+            }
+
+            a:visited {
+                color: #4e7cc7;
+            }
+
+            footer {
+                position: relative;
+                z-index: 100;
+                justify-content: center;
+                text-align: center;
+                padding: 24px 40px;
+                background-color: #0a0a0d;
+                color: #5e5d5d;
+                font-weight: 800;
+            }
+
+            .fixed-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                z-index: 99;
+                padding: 24px 40px;
+                background-color: transparent;
+                opacity: 0;
+                transform: translateY(-100%);
+                transition: transform 0.4s ease-in-out;
+                pointer-events: none;
+            }
+
+            .fixed-header.show {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .fixed-header h1 {
+                font-size: 1.1rem;
+                font-weight: 900;
+                color: #f5f5f0;
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 16px 32px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 id="header-text">the website</h1>
+            <nav>
+                <a href="#about">about.</a>
+                <!-- <a href="#projects">projects.</a> -->
+            </nav>
+        </header>
+        <header class="fixed-header">
+            <h1 id="header-text">keep scrolling.</h1>
+        </header>
+        <main>
+            <section class="animation-wrapper">
+                <section class="panel panel-image">
+                    <div class="scroll-group">
+                        <span class="scroll-bg">scroll.</span>
+                        <img src="images/roll_upscale.png" alt="Cinnamon Roll" style="transform: translateY(63px) translateX(181px);">
+                    </div>
+                </section>
+            </section>
+            <section class="panel panel-tall">
+                <div class="spacer-top"></div>
+                <div class="pin-wrap">
+                    <h2>
+                        this is the website.
+                    </h2>
+                </div>
+            </section>
+            <section class="panel panel-tall">
+                <div class="spacer-top"></div>
+                <div class="pin-wrap">
+                    <p>
+                    welcome.
+                    </p>
+                </div>
+            </section>
+            <section class="panel panel-tall" id="about">
+                <div class="about-sticky">
+                    <div class="bar"></div>
+                    <p>
+                    i am cinnamonroll. i tinker with both hardware and software projects.
+                    </p>
+                </div>
+            </section>
+            <section class="panel panel-tall">
+                <div class="spacer-top"></div>
+                <div class="pin-wrap">
+                    <p>
+                        i use python, java, javascript, and other languages in linux, windows, and macos environments.
+                    </p>
+                </div>
+            </section>
+            <section class="panel panel-tall" id="projects">
+                <div class="spacer-top"></div>
+                <div class="pin-wrap">
+                    <p>
+                        keep scrolling for my current projects:
+                    </p>
+                </div>
+            </section>
+            <section class="panel panel-tall">
+                <div class="spacer-top"></div>
+                <div class="pin-wrap">
+                    <ul>
+                        <li>a website (this one)</li>
+                        <li>a <a href="https://stardance.hackclub.com/projects/20695" target="_blank" rel="noopener">minecraft mod</a></li>
+                        <li>a locally run llm on a pi 5</li>
+                        <li>a smart mirror</li>
+                        <li>a cyberdeck</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="panel">
+                <p>
+                    thanks for visiting.
+                </p>
+            </section>
+        </main>
+        <footer>
             <p>
-                I use Python, JavaScript, Java, and other languages in Linux, Windows, and MacOS.
+                thanks for scrolling. &copy; 2026 made by cinnamonroll. all rights reserved.
             </p>
-        </section>
-        <section class="panel" id="projects">
-            <p>
-                I am currently working on a few projects:
-            </p>
-        </section>
-        <section class="panel" id="projects_list">
-            <ul>
-                <li>a website (this one),</li>
-                <li>a <a href="https://stardance.hackclub.com/projects/20695" target="_blank" rel="noopener">Minecraft mod</a>,</li>
-                <li>and a locally run LLM.</li>
-            </ul>
-        </section>
-        <section class="panel">
-            <p>
-            Thanks for visiting.
-            </p>
-        </section>
-    </main>
-    <footer>
-        <p>
-            Thanks for scrolling. &copy; 2026 CinnamonRoll. All rights reserved.
-        </p>
-</body>
+        </footer>
+        <script>
+            const firstPanel = document.querySelector('.panel-image');
+            const scrollGroup = firstPanel.querySelector('.scroll-group');
+
+            window.addEventListener('scroll', () => {
+                const rect = firstPanel.getBoundingClientRect();
+                let scrollPercentage = Math.min(Math.max(-rect.top / window.innerHeight, 0), 1);
+                const y = -70 - scrollPercentage * 100;
+                const scale = 1 - scrollPercentage * 0.7;
+                scrollGroup.style.transform = `translateY(${y}px) scale(${scale})`;
+            });
+
+            const secondPanel = document.querySelectorAll('.panel')[1];
+            const header = document.querySelector('.fixed-header');
+
+            window.addEventListener('scroll', () => {
+                if (secondPanel.getBoundingClientRect().top <= 0) {
+                    header.classList.add('show');
+                } else {
+                    header.classList.remove('show');
+                }
+            });
+        </script>
+    </body>
 </html>
